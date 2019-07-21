@@ -70,6 +70,7 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("XYI to Image software");
 
+        browseButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         browseButton.setText("Browse");
         browseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +86,7 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
 
         jLabel2.setText("yPixels");
 
-        jLabel3.setText("Please select the data file used  ");
+        jLabel3.setText("Select the data file to be used  ");
 
         jLabel4.setText("Progress Bar:");
 
