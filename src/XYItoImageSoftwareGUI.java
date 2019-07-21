@@ -18,15 +18,13 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author Meenakshi P
- * created on 21.07.2019
- * Neurodynamics lab, CNS, IISc
- * 
+ * @author Meenakshi P created on 21.07.2019 Neurodynamics lab, CNS, IISc
+ *
  * utilised code from XYI2Image software created by J Balaji
- * 
- * 21-07-2019 15.36pm - check code for fWriter, one component, posval and negval. The equivalent for two components seems to be working fine.
+ *
+ * 21-07-2019 15.36pm - check code for fWriter, one component, posval and
+ * negval. The equivalent for two components seems to be working fine.
  */
-
 public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
 
     private Component frame;
@@ -325,28 +323,43 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
                                                 pixelCounter++;
                                             }
                                             break;
+
                                         case 1:
-                                            if (data > 0) {
-                                                if (pixelCounter == xPixelLimit) {
+                                            if (pixelCounter == xPixelLimit) {
+                                                if (data > 0) {
                                                     fWriter.write(data + "\n");
-                                                    pixelCounter = 0;
                                                 } else {
-                                                    fWriter.write(data + "\t");
-                                                    pixelCounter++;
+                                                    fWriter.write(0 + "\n");
                                                 }
+                                                pixelCounter = 0;
+                                            } else {
+                                                if (data > 0) {
+                                                    fWriter.write(data + "\t");
+                                                } else {
+                                                    fWriter.write(0 + "\t");
+                                                }
+                                                pixelCounter++;
                                             }
                                             break;
+
                                         case 2:
-                                            if (data < 0) {
-                                                if (pixelCounter == xPixelLimit) {
+                                            if (pixelCounter == xPixelLimit) {
+                                                if (data < 0) {
                                                     fWriter.write(data + "\n");
-                                                    pixelCounter = 0;
                                                 } else {
-                                                    fWriter.write(data + "\t");
-                                                    pixelCounter++;
+                                                    fWriter.write(0 + "\n");
                                                 }
+                                                pixelCounter = 0;
+                                            } else {
+                                                if (data < 0) {
+                                                    fWriter.write(data + "\t");
+                                                } else {
+                                                    fWriter.write(0 + "\t");
+                                                }
+                                                pixelCounter++;
                                             }
                                             break;
+
                                     }
                                 }
                                 fWriter.close();
