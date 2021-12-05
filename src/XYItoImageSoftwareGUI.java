@@ -79,9 +79,9 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
             }
         });
 
-        xPixels.setText("240");
+        xPixels.setText("1200");
 
-        yPixels.setText("240");
+        yPixels.setText("1048");
 
         jLabel1.setText("xPixels");
 
@@ -415,11 +415,13 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
                                                 yData = Math.round(Float.parseFloat(dataString));
                                                 break;
                                             case 2:
-                                                float data = Float.parseFloat(dataString);
+                                                if(!dataString.equals("--")){
+                                                float data = Float.parseFloat(dataString);                                                
                                                 arrayIdx = (int) ((yData * xPixelNo) + xData);
+//                                                System.out.println("xData: " + xData + " yData: " + yData +" arrayIdx: " + arrayIdx);
                                                 data += pxData.get(arrayIdx);
                                                 pxData.set(arrayIdx, data);
-
+                                                }        
                                                 /*System.out.println(arrayIdx+"");*/
                                                 break;
                                         }
@@ -434,12 +436,16 @@ public class XYItoImageSoftwareGUI extends javax.swing.JDialog {
                                         break;
                                     //case '\r':
                                     case '\n':
+//                                        System.out.println("begin");
+//                                        System.out.println(dataString + "test");
+//                                        System.out.println("Begin " + dataString + " end");
+                                        if(!dataString.contains("--")){
                                         float data = (!dataString.isEmpty()) ? Float.parseFloat(dataString) : 0;
                                         if (!Float.isNaN(data)) {
                                             //arrayIdx = (int)(yPix*xPixelNo + xPix);
                                             data += pyData.get(arrayIdx);
                                             pyData.set(arrayIdx, data);
-
+                                        }
                                         }
                                         dataString = "";
                                         whereAmI = 0;
